@@ -1,0 +1,40 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.10'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'ideaboard'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+
+//jcenter 에서 받는것도 괜찮다
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//JUnit4 추가
+	testImplementation("org.junit.vintage:junit-vintage-engine") {
+		exclude group: "org.hamcrest", module: "hamcrest-core"
+	}
+	//devtools - 서버 처음 돌릴때부터 restart로 실행시킨다
+	//개발단계에서 html 에서 캐싱을 안해줘서 서버 재시작 안해도 변경된것을 바로 확인 가능하다
+	implementation 'org.springframework.boot:spring-boot-devtools'
+	// 쿼리
+	implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6")
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
