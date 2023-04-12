@@ -1,7 +1,6 @@
-package ideaboard.ideahub.member.repository;
+package ideaboard.ideahub.repository;
 
-import ideaboard.ideahub.member.domain.Member;
-import org.junit.Assert;
+import ideaboard.ideahub.domain.Member;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 
-import static org.junit.Assert.*;
+import java.time.LocalDateTime;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,8 +28,14 @@ public class MemberRepositoryTest {
     @Test
     public void 회원가입() throws Exception {
         //given
-        Member member = new Member("loginId", "이름", "password1!");
 
+        Member member = Member.builder()
+                .loginId("hoan0418")
+                .name("이름")
+                .password("tmdghks1!")
+                .signDate(LocalDateTime.now())
+                .updateDate(LocalDateTime.now())
+                .build();
 
         //when
         memberRepository.save(member);
@@ -38,7 +45,6 @@ public class MemberRepositoryTest {
         em.flush();
         //then
         assertEquals("두객체가 다르다",member,member1);
-        assertEquals("두객체가 다르다2","2",member1);
 
     }
 

@@ -1,8 +1,8 @@
-package ideaboard.ideahub.member.domain;
+package ideaboard.ideahub.domain;
 
 
 
-import ideaboard.ideahub.ideaboard.domain.IdeaBoard;
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -36,10 +36,13 @@ public class Member {
     @OneToMany(mappedBy = "member")
     private List<IdeaBoard> ideaBoards = new ArrayList<IdeaBoard>();
 
-    public Member( String loginId, String name, String password) {
+    @Builder
+    public Member( String loginId, String name, String password, LocalDateTime signDate, LocalDateTime updateDate) {
 
         this.loginId = loginId;
         this.name = name;
         this.password = password;
+        this.signDate = signDate;
+        this.updateDate = updateDate;
     }
 }
