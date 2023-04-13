@@ -17,7 +17,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class IdeaBoardService {
 
     public final MemberRepository memberRepository;
@@ -26,5 +26,38 @@ public class IdeaBoardService {
 //    public List<IdeaBoard> findIdeaBoard(IdeaBoardSearch ideaBoardSearch){
 //        return ;
 //    }
+
+    //게시판 등록
+    @Transactional
+    public Long createBoard(IdeaBoard ideaBoard){
+        if(ideaBoard.getId() == null){
+            ideaBoardRepository.save(ideaBoard);
+        }else{
+            updateIdeaBoard(ideaBoard.getId(), ideaBoard.getTitle(), ideaBoard.getContent());
+        }
+
+        return ideaBoard.getId();
+    }
+
+    //리스트
+    public List<IdeaBoard> findIdeaBoards(){
+        List<IdeaBoard> all = ideaBoardRepository.findAll();
+        return all;
+
+    }
+
+    //보기 -
+    public IdeaBoard findOne(Long ideaBoardId){
+        return ideaBoardRepository.findOne(ideaBoardId);
+    }
+
+    //업데이트
+    @Transactional
+    public void updateIdeaBoard(Long ideaBoardId, String title, String content){
+        IdeaBoard ideaBoard = ideaBoardRepository.findOne(ideaBoardId);
+
+        ideaBoard.update(title,content);
+
+    }
 
 }

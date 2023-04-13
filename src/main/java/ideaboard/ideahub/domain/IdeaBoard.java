@@ -36,11 +36,17 @@ public class IdeaBoard {
         this.updateDate = updateDate;
         this.member = member;
     }
-
+    //메소드를 통한 업데이트
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 
     //==연관관계 편의 메소드
     private void setMember(Member member){
         this.member = member;
         member.getIdeaBoards().add(this); // 현재클래스 객체를 넣어준다
     }
+
+
 }
