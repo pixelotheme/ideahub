@@ -20,7 +20,7 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class IdeaBoardService {
 
-    public final MemberRepository memberRepository;
+//    public final MemberRepository memberRepository;
     public final IdeaBoardRepository ideaBoardRepository;
 
 //    public List<IdeaBoard> findIdeaBoard(IdeaBoardSearch ideaBoardSearch){

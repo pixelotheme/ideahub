@@ -24,9 +24,14 @@ public class IdeaBoard {
     private LocalDateTime writeDate;
     private LocalDateTime updateDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    private Member member;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "member_id")
+//    private Member member;
+
+    //생성자
+    public IdeaBoard(){
+
+    }
 
     @Builder
     public IdeaBoard(String title, String content, LocalDateTime writeDate, LocalDateTime updateDate, Member member) {
@@ -34,7 +39,7 @@ public class IdeaBoard {
         this.content = content;
         this.writeDate = writeDate;
         this.updateDate = updateDate;
-        this.member = member;
+//        this.member = member;
     }
     //메소드를 통한 업데이트
     public void update(String title, String content) {
@@ -43,10 +48,10 @@ public class IdeaBoard {
     }
 
     //==연관관계 편의 메소드
-    private void setMember(Member member){
-        this.member = member;
-        member.getIdeaBoards().add(this); // 현재클래스 객체를 넣어준다
-    }
+//    private void setMember(Member member){
+//        this.member = member;
+//        member.getIdeaBoards().add(this); // 현재클래스 객체를 넣어준다
+//    }
 
 
 }

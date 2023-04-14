@@ -23,43 +23,43 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberService {
 
-    private final MemberRepository memberRepository;
-
-    public Long join(Member member){
-        DuplicateCheck(member);
-        memberRepository.save(member); // 저장시 id 가 생긴다 - 영속석 컨텍스트 의 관리 대상이됨
-        //쿠키나 세션에 id 를 저장해 두었다 사용할수 있을듯
-        return member.getId();
-    }
-
-    public void DuplicateCheck(Member member){
-        List<Member> byLoginId = memberRepository.findByLoginId(member.getLoginId());
-        if(!byLoginId.isEmpty()){
-            throw new IllegalStateException("이미 존재하는 회원입니다");
-        }
-    }
-
-    public Member login(String loginId, String password){
-        //1개가 안나오면 에러가 난다고 한다 확인해봐야 할듯
-        try {
-            Member member = memberRepository.login(loginId, password);
-            return member;
-        }catch (NoResultException  e){
-            throw new NoResultException("아이디가 없습니다");
-        }catch (NonUniqueResultException n){
-            throw new NonUniqueResultException("해당하는 아이디가 2개 이상");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    //로그인 후 수정 확인 해봐야함
-    public void update(String loginId, String password , String name){
-        Member member = login(loginId, password);
-
-        member = Member.builder().name(name).updateDate(LocalDateTime.now()).build();
-    }
+//    private final MemberRepository memberRepository;
+//
+//    public Long join(Member member){
+//        DuplicateCheck(member);
+//        memberRepository.save(member); // 저장시 id 가 생긴다 - 영속석 컨텍스트 의 관리 대상이됨
+//        //쿠키나 세션에 id 를 저장해 두었다 사용할수 있을듯
+//        return member.getId();
+//    }
+//
+//    public void DuplicateCheck(Member member){
+//        List<Member> byLoginId = memberRepository.findByLoginId(member.getLoginId());
+//        if(!byLoginId.isEmpty()){
+//            throw new IllegalStateException("이미 존재하는 회원입니다");
+//        }
+//    }
+//
+//    public Member login(String loginId, String password){
+//        //1개가 안나오면 에러가 난다고 한다 확인해봐야 할듯
+//        try {
+//            Member member = memberRepository.login(loginId, password);
+//            return member;
+//        }catch (NoResultException  e){
+//            throw new NoResultException("아이디가 없습니다");
+//        }catch (NonUniqueResultException n){
+//            throw new NonUniqueResultException("해당하는 아이디가 2개 이상");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        return null;
+//    }
+//
+//    //로그인 후 수정 확인 해봐야함
+//    public void update(String loginId, String password , String name){
+//        Member member = login(loginId, password);
+//
+//        member = Member.builder().name(name).updateDate(LocalDateTime.now()).build();
+//    }
 
 }

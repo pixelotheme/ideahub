@@ -15,34 +15,33 @@
     <div>
 
         <table class="table table-sriped">
-            <thead>
+
             <tr>
                 <th>#</th>
+                <td th:text="${ideaBoard.id}"></td>
+            </tr>
+            <tr>
                 <th>제목</th>
+                <td th:text="${ideaBoard.title}"></td>
+            </tr>
+            <tr>
                 <th>내용</th>
+                <td th:text="${ideaBoard.content}"></td>
+            </tr>
+            <tr>
                 <th>작성일</th>
+                <td th:text="${ideaBoard.writeDate}"></td>
+            </tr>
+            <tr>
                 <th>수정일</th>
+                <td th:text="${ideaBoard.updateDate}"></td>
             </tr>
 
-            </thead>
-            <tbody>
-
-<!--            <tr th:each="var : ${list}" onclick="location='/ideaboard/view'">-->
-            <tr th:each="var : ${list}"  th:onclick="|location.href='@{/ideaboard/view(id=${var.id})}'|">
-                <td th:text="${var.id}" ></td>
-<!--                <a href="/ideaboard/updateForm/${var.id}">클릭</a>-->
-                <td th:text="${var.title}" ></td>
-                <td th:text="${var.content}" ></td>
-                <td th:text="${var.writeDate}" ></td>
-                <td th:text="${var.updateDate}" ></td>
-
-            </tr>
-
-            </tbody>
         </table>
 
     </div>
-<a class="" href="/ideaboard/createForm">게시물 등록</a>
+    <a class="" href="/">삭제</a>
+    <a class="" href="/">수정</a>
 </div>
 </body>
 </html>

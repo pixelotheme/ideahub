@@ -19,33 +19,33 @@ import static org.junit.Assert.assertEquals;
 @Transactional
 public class MemberRepositoryTest {
 
-    @Autowired
-    private MemberRepository memberRepository;
-
-    @Autowired
-    private EntityManager em;
-
-    @Test
-    public void 회원가입() throws Exception {
-        //given
-
-        Member member = Member.builder()
-                .loginId("hoan0418")
-                .name("이름")
-                .password("tmdghks1!")
-                .signDate(LocalDateTime.now())
-                .updateDate(LocalDateTime.now())
-                .build();
-
-        //when
-        memberRepository.save(member);
-
-
-        Member member1 = memberRepository.findOne(member.getId());
-        em.flush();
-        //then
-        assertEquals("두객체가 다르다",member,member1);
-
-    }
+//    @Autowired
+//    private MemberRepository memberRepository;
+//
+//    @Autowired
+//    private EntityManager em;
+//
+//    @Test
+//    public void 회원가입() throws Exception {
+//        //given
+//
+//        Member member = Member.builder()
+//                .loginId("hoan0418")
+//                .name("이름")
+//                .password("tmdghks1!")
+//                .signDate(LocalDateTime.now())
+//                .updateDate(LocalDateTime.now())
+//                .build();
+//
+//        //when
+//        memberRepository.save(member);
+//
+//
+//        Member member1 = memberRepository.findOne(member.getId());
+//        em.flush();
+//        //then
+//        assertEquals("두객체가 다르다",member,member1);
+//
+//    }
 
 }
