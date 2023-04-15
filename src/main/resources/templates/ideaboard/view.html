@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrinkto-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"  crossorigin="anonymous">
@@ -18,30 +19,57 @@
 
             <tr>
                 <th>#</th>
-                <td th:text="${ideaBoard.id}"></td>
+                <td id="id" th:text="${ideaBoard.id}"></td>
+
             </tr>
             <tr>
                 <th>제목</th>
-                <td th:text="${ideaBoard.title}"></td>
+                <td id="title" th:text="${ideaBoard.title}"></td>
             </tr>
             <tr>
                 <th>내용</th>
-                <td th:text="${ideaBoard.content}"></td>
+                <td id="content" th:text="${ideaBoard.content}"></td>
             </tr>
             <tr>
                 <th>작성일</th>
-                <td th:text="${ideaBoard.writeDate}"></td>
+                <td id="writeDate" th:text="${ideaBoard.writeDate}"></td>
             </tr>
             <tr>
                 <th>수정일</th>
-                <td th:text="${ideaBoard.updateDate}"></td>
+                <td id="updateDate" th:text="${ideaBoard.updateDate}"></td>
             </tr>
 
         </table>
 
     </div>
-    <a class="" href="/">삭제</a>
-    <a class="" href="/">수정</a>
+    <a class="btn-delete" id="btn-delete" >삭제</a>
+    <a class="btn-update" id="btn-update" th:onclick="|location.href='@{/ideaboard/updateForm(id=${ideaBoard.id})}'|">수정</a>
+    <a class="btn btn-lg btn-dark" href="/ideaboard">리스트</a>
 </div>
 </body>
+<script>
+
+    $('#btn-delete').on('click', function(){
+        alert("클릭")
+
+        var id = $('#id').text();
+
+        $.ajax({
+            type : 'DELETE',
+            url : "/api/ideaboard/delete/"+id,
+            dataType : "json",
+            contentType : "application/json; charset=utf-8"
+
+
+        }).done(function(){
+            alert("삭제성공");
+            location='/ideaboard'
+        }).fail(function(error){
+            console.log(JSON.stringify(error));
+        })
+    });
+
+
+</script>
+
 </html>

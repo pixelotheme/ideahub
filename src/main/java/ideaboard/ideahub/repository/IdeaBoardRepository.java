@@ -43,4 +43,11 @@ public class IdeaBoardRepository {
         em.persist(ideaBoard);
     }
 
+    //삭제
+    public void delete(Long id){
+        em.createQuery("delete from IdeaBoard ib" +
+                " where ib.id = :id")
+                .setParameter("id", id)
+                .executeUpdate();
+    }
 }

@@ -70,4 +70,20 @@ public class IdeaBoardController {
         return "ideaboard/view";
     }
 
+    @GetMapping("/ideaboard/updateForm")
+    public String updateForm(Long id, Model model){
+        IdeaBoard ideaBoard = ideaBoardService.findOne(id);
+
+        IdeaBoardDto ideaBoardDto = IdeaBoardDto
+                .builder()
+                .title(ideaBoard.getTitle())
+                .content(ideaBoard.getContent())
+                .writeDate(ideaBoard.getWriteDate())
+                .updateDate(ideaBoard.getUpdateDate())
+                .id(ideaBoard.getId())
+                .build();
+        model.addAttribute("ideaBoard", ideaBoardDto);
+        return "ideaboard/updateForm";
+    }
+
 }

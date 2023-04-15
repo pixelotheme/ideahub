@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrinkto-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"  crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+
+    <div>
+        <form th:object="${ideaBoard}" method="post">
+            <div class="form-group">
+                <label th:for="id">#</label>
+                <input type="number" th:field="*{id}" class="form-control" readonly="readonly"/>
+            </div>
+            <div class="form-group">
+                <label th:for="title">제목</label>
+                <input type="text" th:field="*{title}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label th:for="content">내용</label>
+                <textarea rows="4" cols="80" style="width: 600px;" th:field="*{content}" ></textarea>
+
+            </div>
+            <div class="form-group">
+                <label th:for="writeDate">작성일</label>
+                <input type="text" th:field="*{writeDate}" class="form-control" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <label th:for="updateDate">수정일</label>
+                <input type="text" th:field="*{updateDate}" class="form-control" readonly="readonly"/>
+            </div>
+
+        </form>
+
+
+    </div>
+    <a class="" href="/">삭제</a>
+    <a id="btn-update">수정</a>
+</div>
+</body>
+
+<script>
+
+    $('#btn-update').on('click', function(){
+        alert("클릭")
+
+        var data = {
+            id : $('#id').val(),
+            title : $('#title').val(),
+            content : $('#content').val(),
+            writeDate : $('#writeDate').val(),
+            updateDate : $('#updateDate').val()
+        };
+
+        $.ajax({
+            type : 'PUT',
+            url : "/api/ideaboard/update",
+            dataType : "json",
+            contentType : "application/json; charset=utf-8",
+            data : JSON.stringify(data)
+
+        }).done(function(success){
+            alert("수정성공");
+            location='/ideaboard/view?id='+success;
+        }).fail(function(error){
+            alert(JSON.stringify(error));
+        })
+    });
+
+
+</script>
+
+</html>

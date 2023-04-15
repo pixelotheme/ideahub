@@ -53,11 +53,18 @@ public class IdeaBoardService {
 
     //업데이트
     @Transactional
-    public void updateIdeaBoard(Long ideaBoardId, String title, String content){
+    public Long updateIdeaBoard(Long ideaBoardId, String title, String content){
         IdeaBoard ideaBoard = ideaBoardRepository.findOne(ideaBoardId);
 
         ideaBoard.update(title,content);
-
+        return ideaBoard.getId();
     }
 
+    //삭제
+    @Transactional
+    public Long deleteIdeaBoard(Long id){
+        ideaBoardRepository.delete(id);
+
+        return id;
+    }
 }
