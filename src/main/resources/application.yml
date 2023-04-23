@@ -4,9 +4,6 @@ spring:
 #    url: jdbc:mariadb://localhost:3306/idea_hub_db?characterEncoding=UTF-8&serverTimezone=UTC
 #    username: ideahub
 #    password: ideahub
-#    url: jdbc:mariadb://ideahub-springboot-webservice3db.cxv0aorf76po.ap-northeast-2.rds.amazonaws.com:3306/idea_hub_db?characterEncoding=UTF-8&serverTimezone=UTC
-#    username: ideahub
-#    password: ideahub
     driver-class-name: org.mariadb.jdbc.Driver
 
   jpa:
