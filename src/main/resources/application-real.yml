@@ -2,7 +2,7 @@ spring:
   config:
     activate:
       on-profile: real
-  profiles: real
+  profiles:
     include: real-db
 #  datasource:
 #    driver-class-name: org.mariadb.jdbc.Driver
