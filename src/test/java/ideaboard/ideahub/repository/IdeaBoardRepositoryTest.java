@@ -33,21 +33,13 @@ public class IdeaBoardRepositoryTest {
     @Test
     public void 아이디어게시판등록() throws Exception {
         //given
-//        Member member = Member.builder()
-//                .loginId("hoan0418")
-//                .name("이름")
-//                .password("tmdghks1!")
-//                .signDate(LocalDateTime.now())
-//                .updateDate(LocalDateTime.now())
-//                .build();
-//        memberRepository.save(member);
+
 
         IdeaBoard ideaBoard = IdeaBoard.builder()
                 .title("아이디어제목")
                 .content("내용테스트")
                 .writeDate(LocalDateTime.now())
                 .updateDate(LocalDateTime.now())
-//                .member(member)
                 .build();
         //when
         System.out.println("ideaBoard.getId() = " + ideaBoard.getId());
