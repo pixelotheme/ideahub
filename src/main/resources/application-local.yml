@@ -1,12 +1,7 @@
-server:
-  port: 8001
-
 spring:
-  profiles:
-    active: local
-    group:
-      local : local
-      real : real
+  config:
+    activate:
+      on-profile: local
   datasource:
     #idea_hub_db - 테이블 이름 작성
     url: jdbc:mariadb://localhost:3306/idea_hub_db?characterEncoding=UTF-8&serverTimezone=UTC

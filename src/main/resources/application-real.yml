@@ -1,7 +1,8 @@
-spring:
-  server:
-    port: 8001
+server:
+  port: 8001
 
+
+spring:
   config:
     activate:
       on-profile: real
