@@ -1,12 +1,8 @@
-server:
-  port: 8001
-
-
 spring:
   config:
     activate:
       on-profile: real
-  profiles:
+  profiles: real
     include: real-db
 #  datasource:
 #    driver-class-name: org.mariadb.jdbc.Driver
