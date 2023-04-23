@@ -1,7 +1,4 @@
 spring:
-  config:
-    activate:
-      on-profile: real
   profiles:
     include: real-db
 #  datasource:
