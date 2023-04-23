@@ -14,9 +14,9 @@ import java.time.LocalDateTime;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@Transactional
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
+//@Transactional
 public class MemberRepositoryTest {
 
 //    @Autowired

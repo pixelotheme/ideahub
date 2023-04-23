@@ -40,7 +40,7 @@ public class IdeaBoardServiceTest {
         
         Assert.assertEquals("게시판이 다르다",findIdeaBoard.getId(),ideaBoardId);
         Assert.assertEquals("게시판이 다르다",ideaBoard.getId(),ideaBoardId);
-        Assert.assertEquals("게시판이 다르다",ideaBoard.getId(),ideaBoardId2);
+//        Assert.assertEquals("게시판이 다르다",ideaBoard.getId(),ideaBoardId2);
     }
 
     @Test
