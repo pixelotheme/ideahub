@@ -3,8 +3,7 @@ server:
 
 spring:
   profiles:
-    include: local
-
+    active: local
 
 logging:
   level:
