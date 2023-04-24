@@ -1,10 +1,11 @@
-
+server:
+  port: 8001
 
 spring:
   profiles:
     active: local
     group:
-     "real": "real,real-db"
+     "real": "real-db"
      "local": "local"
 
 logging:
