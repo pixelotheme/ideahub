@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    active: real
+    active: local
     group:
      "real": "real,real-db"
      "local": "local"
