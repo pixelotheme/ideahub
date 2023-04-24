@@ -1,6 +1,13 @@
 server:
   port: 8001
 
+spring:
+  profiles:
+    active: real
+    group:
+     "real": "real,real-db"
+     "local": "local"
+
 logging:
   level:
     org.hibernate.SQL: debug
