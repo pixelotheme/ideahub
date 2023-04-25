@@ -1,5 +1,4 @@
-server:
-  port: 8001
+
 #중복 없이 작성하면 될수도...
 spring:
   datasource:

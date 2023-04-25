@@ -8,6 +8,7 @@ spring:
      "real1": "real-db"
      "local": "local"
 
+
 logging:
   level:
     org.hibernate.SQL: debug
