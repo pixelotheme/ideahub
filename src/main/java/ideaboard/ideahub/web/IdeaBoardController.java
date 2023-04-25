@@ -44,14 +44,14 @@ public class IdeaBoardController {
 
 
         model.addAttribute("list", collect);
-        return "/ideaboard/list";
+        return "ideaboard/list";
 
 
     }
 
     @GetMapping("/ideaboard/createForm")
     public String createForm(){
-        return "/ideaboard/createForm";
+        return "ideaboard/createForm";
     }
 
     @GetMapping("/ideaboard/view")
