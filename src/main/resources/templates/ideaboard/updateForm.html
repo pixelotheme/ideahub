@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrinkto-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"  crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
-    <title>Title</title>
-</head>
+<head th:replace="fragments/header :: header" />
 <body>
 <div class="container">
-
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
     <div>
         <form th:object="${ideaBoard}" method="post">
             <div class="form-group">
@@ -38,11 +29,10 @@
             </div>
 
         </form>
-
-
+    <a class="btn btn-primary" href="/">삭제</a>
+    <a class="btn btn-primary" id="btn-update">수정</a>
     </div>
-    <a class="" href="/">삭제</a>
-    <a id="btn-update">수정</a>
+    <div th:replace="fragments/footer :: footer"/>
 </div>
 </body>
 

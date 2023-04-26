@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrinkto-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"  crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
-    <title>Title</title>
-</head>
+<head th:replace="fragments/header :: header" />
 <body>
 <div class="container">
-
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
     <div>
 
         <table class="table table-sriped">
@@ -42,9 +33,10 @@
         </table>
 
     </div>
-    <a class="btn-delete" id="btn-delete" >삭제</a>
-    <a class="btn-update" id="btn-update" th:onclick="|location.href='@{/ideaboard/updateForm(id=${ideaBoard.id})}'|">수정</a>
-    <a class="btn btn-lg btn-dark" href="/ideaboard">리스트</a>
+    <a class="btn btn-primary" id="btn-delete" role="button">삭제</a>
+    <a class="btn btn-primary" id="btn-update" th:onclick="|location.href='@{/ideaboard/updateForm(id=${ideaBoard.id})}'|" role="button">수정</a>
+    <a class="btn btn-lg btn-dark" href="/ideaboard" role="button">리스트</a>
+    <div th:replace="fragments/footer :: footer"/>
 </div>
 </body>
 <script>
