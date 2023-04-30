@@ -16,7 +16,7 @@ import java.util.List;
  * */
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor // final 선언된 필드 자동 생성
 @Transactional(readOnly = true)
 public class IdeaBoardService {
 
@@ -30,12 +30,12 @@ public class IdeaBoardService {
     //게시판 등록
     @Transactional
     public Long createBoard(IdeaBoard ideaBoard){
-        if(ideaBoard.getId() == null){
-            ideaBoardRepository.save(ideaBoard);
-        }else{
-            updateIdeaBoard(ideaBoard.getId(), ideaBoard.getTitle(), ideaBoard.getContent());
-        }
-
+//        if(ideaBoard.getId() == null){
+//            ideaBoardRepository.save(ideaBoard);
+//        }else{
+//            updateIdeaBoard(ideaBoard.getId(), ideaBoard.getTitle(), ideaBoard.getContent());
+//        }
+        ideaBoardRepository.save(ideaBoard);
         return ideaBoard.getId();
     }
 
