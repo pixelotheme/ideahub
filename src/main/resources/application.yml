@@ -6,7 +6,7 @@ spring:
     active: local
     group:
      "real1": "real-db"
-     "local": "local"
+     "local": "local,local-oauth"
 
 
 logging:
