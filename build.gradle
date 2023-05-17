@@ -33,10 +33,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-devtools'
 	// 쿼리
 	implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6")
-	//롬북
+	//롬복
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	//스프링 시큐리티 oauth-client, jose 를 기본으로 관리해준다
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
+	//세션 저장소 DB 연결을 위한 의존성 추가
+	implementation 'org.springframework.session:spring-session-jdbc'
+	// 스프링 시큐리티 테스트를 위한 의존성 추가
+	implementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('test') {

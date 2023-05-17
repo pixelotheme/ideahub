@@ -20,7 +20,7 @@
             <tbody>
 
 <!--            <tr th:each="var : ${list}" onclick="location='/ideaboard/view'">-->
-            <tr th:each="var : ${list}"  th:onclick="|location.href='@{/ideaboard/view(id=${var.id})}'|">
+            <tr th:each="var : ${list}"  th:onclick="|location.href='@{/web/ideaboard/view(id=${var.id})}'|">
                 <td th:text="${var.id}" ></td>
 <!--                <a href="/ideaboard/updateForm/${var.id}">클릭</a>-->
                 <td th:text="${var.title}" ></td>
@@ -34,7 +34,7 @@
         </table>
 
     </div>
-    <a class="btn btn-primary" role="button" href="/ideaboard/createForm" >게시물 등록</a>
+    <a class="btn btn-primary" role="button" href="/web/ideaboard/createForm" >게시물 등록</a>
     <div th:replace="fragments/footer :: footer"/>
 </div>
 </body>

@@ -22,12 +22,12 @@ public class IdeaBoardController {
     private final IdeaBoardService ideaBoardService;
 
 
-    @GetMapping("/")
-    public String home(){
-        return "index";
-    }
+//    @GetMapping("/")
+//    public String home(){
+//        return "index";
+//    }
 
-    @GetMapping("/ideaboard")
+    @GetMapping("/web/ideaboard/list")
     public String list(Model model)
     {
         List<IdeaBoard> ideaBoards = ideaBoardService.findIdeaBoards();
@@ -44,17 +44,17 @@ public class IdeaBoardController {
 
 
         model.addAttribute("list", collect);
-        return "ideaboard/list";
+        return "web/ideaboard/list";
 
 
     }
 
-    @GetMapping("/ideaboard/createForm")
+    @GetMapping("/web/ideaboard/createForm")
     public String createForm(){
-        return "ideaboard/createForm";
+        return "web/ideaboard/createForm";
     }
 
-    @GetMapping("/ideaboard/view")
+    @GetMapping("/web/ideaboard/view")
     public String view(Long id, Model model){
         IdeaBoard ideaBoard = ideaBoardService.findOne(id);
 
@@ -67,10 +67,10 @@ public class IdeaBoardController {
                 .id(ideaBoard.getId())
                 .build();
         model.addAttribute("ideaBoard", ideaBoardDto);
-        return "ideaboard/view";
+        return "web/ideaboard/view";
     }
 
-    @GetMapping("/ideaboard/updateForm")
+    @GetMapping("/web/ideaboard/updateForm")
     public String updateForm(Long id, Model model){
         IdeaBoard ideaBoard = ideaBoardService.findOne(id);
 
@@ -83,7 +83,7 @@ public class IdeaBoardController {
                 .id(ideaBoard.getId())
                 .build();
         model.addAttribute("ideaBoard", ideaBoardDto);
-        return "ideaboard/updateForm";
+        return "web/ideaboard/updateForm";
     }
 
 }

@@ -1,0 +1,29 @@
+# 테스트용 설정파일 없을때 main application.yml 파일을 가져온다 - 하지만 나머지 yml 파일은 꺼내오지 않는다
+# 테스트용 yml 설정 파일
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/idea_hub_db?characterEncoding=UTF-8&serverTimezone=UTC
+    username: ideahub
+    password: ideahub
+    driver-class-name: org.mariadb.jdbc.Driver
+  session: #세션 저장소 db로 활용하기 위한 설정ㅓ
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always # 세션 테이블 생성
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect #mariaDB를 위한 방언
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: "test"
+            client-secret: "test"
+            scope: "profile,email"
+
+logging:
+  level:
+    org.hibernate.SQL: debug

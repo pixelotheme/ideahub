@@ -1,5 +1,4 @@
 
-#중복 없이 작성하면 될수도...
 spring:
   datasource:
 #    idea_hub_db - 테이블 이름 작성

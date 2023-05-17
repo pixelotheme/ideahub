@@ -58,7 +58,7 @@
 
         }).done(function(success){
             alert("수정성공");
-            location='/ideaboard/view?id='+success;
+            location='/web/ideaboard/view?id='+success;
         }).fail(function(error){
             alert(JSON.stringify(error));
         })
