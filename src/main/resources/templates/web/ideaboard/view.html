@@ -35,7 +35,7 @@
     </div>
     <a class="btn btn-primary" id="btn-delete" role="button">삭제</a>
     <a class="btn btn-primary" id="btn-update" th:onclick="|location.href='@{/web/ideaboard/updateForm(id=${ideaBoard.id})}'|" role="button">수정</a>
-    <a class="btn btn-lg btn-dark" href="/web/ideaboard" role="button">리스트</a>
+    <a class="btn btn-lg btn-dark" href="/web/ideaboard/list" role="button">리스트</a>
     <div th:replace="fragments/footer :: footer"/>
 </div>
 </body>
@@ -55,7 +55,7 @@
 
         }).done(function(){
             alert("삭제성공");
-            location='/web/ideaboard'
+            location='/web/ideaboard/list'
         }).fail(function(error){
             console.log(JSON.stringify(error));
         })
