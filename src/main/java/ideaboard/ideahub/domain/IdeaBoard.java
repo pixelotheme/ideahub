@@ -20,7 +20,8 @@ public class IdeaBoard {
     //IDENTITY로 지정해 줘야 mariadb auto_increament가 된다
     // 엔티티가 영속상태가 되려면 식별자가 필요한데 IDENTITY 전략인 insert 이 식별자를 구할수 있다.
     //그래서 persist 호출 즉시 쿼리가 들어가고 트랜잭션 쓰기 지연이 작동하지 않는다.
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idea_board_id")
     private Long id;
 
