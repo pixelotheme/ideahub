@@ -5,7 +5,7 @@ spring:
   profiles:
     active: local
     group:
-     "real1": "real-db"
+     "real1": "real-db,real-oauth"
      "local": "local,local-oauth"
   session: #세션 저장소 db로 활용하기 위한 설정ㅓ
     store-type: jdbc
