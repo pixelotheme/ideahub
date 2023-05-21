@@ -6,15 +6,10 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL57Dialect
-#        dialect.storage_engine: innodb
   datasource:
     url: jdbc:h2:mem:testdb;MODE=MYSQL
     username: sa
     password:
-#    hikari:
-##      jdbc-url: jdbc:h2:mem:testdb;MODE=MySQL
-#      jdbc-url: jdbc:h2:mem://localhost/~/testdb;MODE=MYSQL
-##      jdbc-url: jdbc:h2:mem://localhost/~/testdb;MODE=MYSQL;NON_KEYWORDS=USER
   session: #세션 저장소 db로 활용하기 위한 설정ㅓ
     store-type: jdbc
   security:
