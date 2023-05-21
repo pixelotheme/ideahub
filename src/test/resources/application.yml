@@ -8,7 +8,7 @@ spring:
         dialect: org.hibernate.dialect.MySQL57Dialect
 #        dialect.storage_engine: innodb
   datasource:
-    url: jdbc:h2:mem:testdb;MODE=MYSQL;NON_KEYWORDS=USER
+    url: jdbc:h2:mem:testdb;MODE=MYSQL
     username: sa
     password:
 #    hikari:
