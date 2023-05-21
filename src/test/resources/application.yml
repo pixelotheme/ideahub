@@ -1,14 +1,22 @@
 ## 테스트용 설정파일 없을때 main application.yml 파일을 가져온다 - 하지만 나머지 yml 파일은 꺼내오지 않는다
 ## 테스트용 yml 설정 파일
 spring:
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL57Dialect
+#        dialect.storage_engine: innodb
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MYSQL;NON_KEYWORDS=USER
+    username: sa
+    password:
+#    hikari:
+##      jdbc-url: jdbc:h2:mem:testdb;MODE=MySQL
+#      jdbc-url: jdbc:h2:mem://localhost/~/testdb;MODE=MYSQL
+##      jdbc-url: jdbc:h2:mem://localhost/~/testdb;MODE=MYSQL;NON_KEYWORDS=USER
   session: #세션 저장소 db로 활용하기 위한 설정ㅓ
     store-type: jdbc
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      format_sql: true
-      dialect: org.hibernate.dialect.MySQL5InnoDBDialect #mariaDB를 위한 방언
   security:
     oauth2:
       client:
