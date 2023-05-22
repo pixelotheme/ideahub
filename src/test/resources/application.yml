@@ -1,5 +1,6 @@
 ## 테스트용 설정파일 없을때 main application.yml 파일을 가져온다 - 하지만 나머지 yml 파일은 꺼내오지 않는다
 ## 테스트용 yml 설정 파일
+
 spring:
   jpa:
     properties:
@@ -8,9 +9,10 @@ spring:
         dialect: org.hibernate.dialect.MySQL57Dialect
   datasource:
     url: jdbc:h2:mem:testdb;MODE=MYSQL
-    username: sa
-    password:
-  session: #세션 저장소 db로 활용하기 위한 설정ㅓ
+#    username: sa
+#    password:
+    driver-class-name: org.h2.Driver
+  session: #세션 저장소 db로 활용하기 위한 설정
     store-type: jdbc
   security:
     oauth2:
