@@ -9,11 +9,8 @@ spring:
      "local": "local,local-oauth"
   session: #세션 저장소 db로 활용하기 위한 설정ㅓ
     store-type: jdbc
-#    jdbc:
-#      initialize-schema: always # 세션 테이블 생성
 
 
 logging:
   level:
     org.hibernate.SQL: debug
-    #org.hibernate.type: trace    #p6spy로 쿼리 본다

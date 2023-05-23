@@ -2,7 +2,10 @@ package ideaboard.ideahub.web.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ideaboard.ideahub.domain.IdeaBoard;
+import ideaboard.ideahub.domain.Role;
+import ideaboard.ideahub.domain.User;
 import ideaboard.ideahub.repository.IdeaBoardRepository;
+import ideaboard.ideahub.repository.UserRepository;
 import ideaboard.ideahub.web.dto.IdeaBoardCreateDto;
 import org.assertj.core.api.Assertions;
 import org.junit.After;
@@ -14,9 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -24,6 +25,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
@@ -45,6 +47,10 @@ public class IdeaBoardApiControllerTest {
     private TestRestTemplate restTemplate;
     @Autowired
     private IdeaBoardRepository ideaBoardRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private EntityManager em;
 
     //스프링 시큐리티 테스트 하기위한 MockMVC 사용
     @Autowired
@@ -104,5 +110,19 @@ public class IdeaBoardApiControllerTest {
 
     }
 
+    @Test
+    public void UserTest() throws Exception{
+        User user = User.builder()
+                .email("hoho@AA")
+                .name("테스트")
+                .role(Role.USER)
+                .build();
+        em.persist(user);
+//        userRepository.save(user);
+        em.flush();
+        em.clear();
+
+        System.out.println(em.find(User.class,user.getId()));
+    }
 
 }
