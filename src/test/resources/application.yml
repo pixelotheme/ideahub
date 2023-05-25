@@ -8,7 +8,8 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL57Dialect
   datasource:
-    url: jdbc:h2:mem:testdb;MODE=MYSQL;NON_KEYWORDS=USER
+    url: jdbc:h2:mem:testdb;MODE=MYSQL
+#    url: jdbc:h2:mem:testdb;MODE=MYSQL;NON_KEYWORDS=USER
     driver-class-name: org.h2.Driver
   session: #세션 저장소 db로 활용하기 위한 설정
     store-type: jdbc
