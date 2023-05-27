@@ -1,14 +1,15 @@
 package ideaboard.ideahub.service;
 
 import ideaboard.ideahub.domain.IdeaBoard;
+import ideaboard.ideahub.domain.User;
 import ideaboard.ideahub.repository.IdeaBoardRepository;
-import ideaboard.ideahub.repository.IdeaBoardSearch;
-import ideaboard.ideahub.repository.MemberRepository;
+import ideaboard.ideahub.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -20,12 +21,8 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class IdeaBoardService {
 
-//    public final MemberRepository memberRepository;
     public final IdeaBoardRepository ideaBoardRepository;
 
-//    public List<IdeaBoard> findIdeaBoard(IdeaBoardSearch ideaBoardSearch){
-//        return ;
-//    }
 
     //게시판 등록
     @Transactional

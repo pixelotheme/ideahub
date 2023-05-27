@@ -1,6 +1,5 @@
 package ideaboard.ideahub.domain;
 
-import ideaboard.ideahub.domain.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,9 +35,9 @@ public class IdeaBoard {
 
     private LocalDateTime updateDate;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "member_id")
-//    private Member member;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     //기본 생성자 - NoArgsConstructor로 대신한다
 //    public IdeaBoard(){
@@ -46,13 +45,13 @@ public class IdeaBoard {
 //    }
 
     @Builder
-    public IdeaBoard(String title, String content, LocalDateTime writeDate, LocalDateTime updateDate, String author) {
+    public IdeaBoard(String title, String content, LocalDateTime writeDate, LocalDateTime updateDate, String author, User user) {
         this.title = title;
         this.content = content;
         this.writeDate = writeDate;
         this.updateDate = updateDate;
         this.author = author;
-//        this.member = member;
+        this.user = user;
     }
     //메소드를 통한 업데이트
     public void update(String title, String content) {

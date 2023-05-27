@@ -1,12 +1,11 @@
 package ideaboard.ideahub.repository;
 
 import ideaboard.ideahub.domain.IdeaBoard;
-import ideaboard.ideahub.domain.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 //순수하게 엔티티를 조회, 저장 하는곳이다
@@ -15,7 +14,6 @@ import java.util.List;
 public class IdeaBoardRepository {
 
     private final EntityManager em;
-
 
     //게시판 찾기
     public IdeaBoard findOne(Long id){
