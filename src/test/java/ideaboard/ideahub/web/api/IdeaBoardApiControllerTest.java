@@ -32,7 +32,6 @@ import static org.springframework.security.test.web.servlet.setup.SecurityMockMv
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 //@WebMvcTest 의 경우 Controller와 ControllerAdvice 등
 // 외부 연동과 관련된 부분만 활성화 되어 JPA 기능이 작동하지 않아
 //@SpringBootTest와 TestRestTemplate 사용한다
