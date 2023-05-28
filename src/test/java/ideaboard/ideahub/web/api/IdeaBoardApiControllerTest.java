@@ -1,6 +1,7 @@
 package ideaboard.ideahub.web.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import ideaboard.ideahub.config.auth.dto.SessionUser;
 import ideaboard.ideahub.domain.IdeaBoard;
 import ideaboard.ideahub.domain.Role;
 import ideaboard.ideahub.domain.User;
@@ -27,6 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.persistence.EntityManager;
+import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -73,13 +75,13 @@ public class IdeaBoardApiControllerTest {
 //        ideaBoardRepository.delete();
     }
 
-    // - TODO 회원 까지 테스트하는 검증이 필요함
-    @Test
-    @DisplayName("아이디어 보드 등록")
-    @WithMockUser(roles = "USER") //MockMVC 에서만 작동한다
-    public void ideaBoardCreateTest() throws Exception {
-        //given
-
+    // - TODO 회원 까지 테스트하는 검증이 필요함 - 클라이언트 단에서 세션 이메일 꺼내는 방법으로?
+//    @Test
+//    @DisplayName("아이디어 보드 등록")
+//    @WithMockUser(roles = "USER") //MockMVC 에서만 작동한다
+//    public void ideaBoardCreateTest() throws Exception {
+//        //given
+//
 //        String title = "제목";
 //        String content = "내용테스트";
 //        IdeaBoardCreateDto createDto = IdeaBoardCreateDto
@@ -105,8 +107,8 @@ public class IdeaBoardApiControllerTest {
 //        List<IdeaBoard> all = ideaBoardRepository.findAll();
 //        Assertions.assertThat(all.get(0).getTitle()).isEqualTo(title);
 //        Assertions.assertThat(all.get(0).getContent()).isEqualTo(content);
-
-    }
+//
+//    }
 
     @Test
     public void UserTest() throws Exception{

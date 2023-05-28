@@ -44,7 +44,8 @@ dependencies {
 	// 스프링 시큐리티 테스트를 위한 의존성 추가
 	implementation 'org.springframework.security:spring-security-test'
 	//테스트용 h2
-	implementation 'com.h2database:h2:1.4.200'
+	implementation 'com.h2database:h2'
+//	implementation 'com.h2database:h2:1.4.200'
 }
 
 tasks.named('test') {

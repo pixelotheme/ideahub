@@ -40,13 +40,13 @@
 
     $('#btn-update').on('click', function(){
         alert("클릭")
-
+        debugger;
         var data = {
             id : $('#id').val(),
             title : $('#title').val(),
             content : $('#content').val(),
-            writeDate : $('#writeDate').val(),
-            updateDate : $('#updateDate').val()
+            writeDate : "",
+            updateDate : ""
         };
 
         $.ajax({
