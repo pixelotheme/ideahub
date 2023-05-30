@@ -16,6 +16,10 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
+# 접근권한 풀기
+before_install:
+  - chmod +x gradlew
+
 #master 브랜치에 푸시되었을 때 수행하는 명령어
 #여기서는 프로젝트 내부에 둔 gradlew를 통핸 clean&build를 수행한다
 script: "./gradlew clean build"
