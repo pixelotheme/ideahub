@@ -24,6 +24,26 @@ before_install:
 #여기서는 프로젝트 내부에 둔 gradlew를 통핸 clean&build를 수행한다
 script: "./gradlew clean build"
 
+#deploy 명령어가 실행되기 전에 수행
+#CodeDeploy는 Jar 파일은 인식하지 못해 Jar+기타 설정 파일들을 모아 압축 한다(zip)
+before_deploy:
+  - zip -r ideahub  #현재위치의 모든파일을 ideahub로 압축 한다 -> 명령어의 마지막 위치는 내 프로젝트 이름이어야한다
+  - mkdir -p deploy #deploy 디렉토리를 travis CI가 실행 중인 위치에서 생성
+  - mv ideahub.zip deploy/ideahub.zip #deploy/ideahub 로 zip 파일 위치 변경
+
+#S3 파일 업로드 혹은 CodeDeploy로 배포 등 외부 서비스와 연동될 행위들을 선언
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repo setting에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo setting에 설정된 값
+    bucket: ideahub-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private # zip파일 접근을 private으로
+    local_dir: deploy # before_deploy 에서 생성한 디렉토리 지정 - 해당위치 파일만 s3에 전송
+    wait_until_deployed: true
+
+
 #Travis CI 실행 완료 시 자동으로 알람이 가도록 설정
 notifications:
   email:
