@@ -46,7 +46,6 @@ deploy:
     local_dir: deploy # before_deploy 에서 생성한 디렉토리 지정 - 해당위치 파일만 s3에 전송
     wait_until_deployed: true
 
-
 #Travis CI 실행 완료 시 자동으로 알람이 가도록 설정
 notifications:
   email:
