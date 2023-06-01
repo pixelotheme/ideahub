@@ -26,10 +26,13 @@ script: "./gradlew clean build"
 
 #deploy 명령어가 실행되기 전에 수행
 #CodeDeploy는 Jar 파일은 인식하지 못해 Jar+기타 설정 파일들을 모아 압축 한다(zip)
+#1. 현재위치의 모든파일을 ideahub로 압축 한다 -> 명령어의 마지막 위치는 내 프로젝트 이름이어야한다
+#2. deploy 디렉토리를 travis CI가 실행 중인 위치에서 생성
+#3. deploy/ideahub 로 zip 파일 위치 변경
 before_deploy:
-  - zip -r ideahub-springboot-webservice3  #현재위치의 모든파일을 ideahub로 압축 한다 -> 명령어의 마지막 위치는 내 프로젝트 이름이어야한다
-  - mkdir -p deploy #deploy 디렉토리를 travis CI가 실행 중인 위치에서 생성
-  - mv ideahub-springboot-webservice3.zip deploy/ideahub-springboot-webservice3.zip #deploy/ideahub 로 zip 파일 위치 변경
+  - zip -r ideahub *
+  - mkdir -p deploy
+  - mv ideahub.zip deploy/ideahub.zip
 
 #S3 파일 업로드 혹은 CodeDeploy로 배포 등 외부 서비스와 연동될 행위들을 선언
 deploy:
