@@ -39,12 +39,23 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo setting에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo setting에 설정된 값
-    bucket: ideahub-build
+    bucket: ideahub-build #s3 버킷
     region: ap-northeast-2
     skip_cleanup: true
     acl: private # zip파일 접근을 private으로
     local_dir: deploy # before_deploy 에서 생성한 디렉토리 지정 - 해당위치 파일만 s3에 전송
     wait_until_deployed: true
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # Travis repo setting에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo setting에 설정된 값
+    bucket: ideahub-build #s3 버킷
+    key: ideahub.zip # 빌드 파일을 압축해서 전달
+    bundle_type: zip # 압축 확장자
+    application: ideahub-springboot-webservice3 # aws 웹 콘솔에서 등록한 CodeDeploy 애플리케이션
+    deployment_group: ideahub-springboot-webservice3-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+    region: ap-northeast-2
+    wait-until-deployed: true
 
 #Travis CI 실행 완료 시 자동으로 알람이 가도록 설정
 notifications:
