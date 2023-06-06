@@ -5,3 +5,19 @@ files:
   - source: /   #CodeDeploy에서 전달해 준 파일 중 destination으로 이동시킬 대상을 지정 - 루트 경로(/)를 지정하면 전체 파일을 말한다
     destination: /home/ec2-user/app/step2/zip/ # source에서 지정된 파일을 받을 위치 - 이후 jar를 실행하는 등은 destination에서 옮긴 파일들로 진행
     overwrite: yes # 기존파일 있으면 덮어쓸지 결정
+
+#Codedeploy에서 ec2 서버로 넘겨준 파일들 모두 ec2-user 권한을 갖도록 한다
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
+
+#CodeDeploy 배포 단계에서 실행할 명령어 지정
+#ApplicationStart 단계에서 deploy.sh를 ec2-user 권한으로 실행
+#timeout: 60으로 스크립트 실행 60초 이상 수행되면 실패
+hooks:
+  ApplicationStart:
+    - location: deploy.sh
+      timeout: 60
+      runas: ec2-user
