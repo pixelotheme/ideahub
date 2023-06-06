@@ -41,11 +41,12 @@ chmod +x $JAR_NAME
 
 echo "> $JAR_NAME 실행"
 
-nohup java -jar \
-    -Dspring.config.additional-location=classpath:/application.yml,/home/ec2-user/app/application-real-db.yml,/home/ec2-user/app/application-real-oauth.yml \
-    -Dspring.profiles.active=real1 \
     #nohup 실행시 CodeDeploy는 무한 대기중
     #-> 이슈 해결위해 nohup.out파일을 표준 입출력용으로 별도로 사용
     #이렇게 하지 않으면 nohup.out파일이 생기지 않고, CodeDeploy 로그에 표준 입출력이 출력된다
 #    nohup이 끝나기 전까지 CodeDeploy도 끝나지 않으니 꼭 이렇게 해야만 한다
+
+nohup java -jar \
+    -Dspring.config.additional-location=classpath:/application.yml,/home/ec2-user/app/application-real-db.yml,/home/ec2-user/app/application-real-oauth.yml \
+    -Dspring.profiles.active=real1 \
     $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
