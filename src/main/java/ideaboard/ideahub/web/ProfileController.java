@@ -23,7 +23,7 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public String profile(){
-        //현재 실행중인 ActiveProfile 모두 가져온다 - real, real-db, real-oauth 활성화중이라면 3개 들어간다
+        //현재 실행중인 ActiveProfile 모두 가져온다 - real, real-db, real-oauth 활성화중이라면 3개 들어간다 - 현재 운영시 active profile 들
         List<String> profiles = Arrays.asList(env.getActiveProfiles());
         //배포에 사용될 profile들 - 이중 하나가 있다면 그 값을 반환
         //- 실제 real2,real3 만 무중단 배포에서 사용 - profile group 명
