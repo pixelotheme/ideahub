@@ -34,8 +34,9 @@ public class SecurityConfig {
                     .authorizeHttpRequests()//url별 권한 관리를 설정하는 옵션의 시작점 - authorize가 선언되어야만 antMachers 옵션 사용 가능
                 // antMatchers - 권한 관리 대상을 지정하는 옵션 - url, http 메소드별로 관리가능
                 // "/"등 지정된 URL들은 permitAll()옵션을 통해 전체 열람권한을 주었다
+                //  /profile 제외 무중단 배포로인한 추가
                     .antMatchers("/","/web/ideaboard/**", "/css/**","/images/**",
-                            "/js/**", "/h2-console/**").permitAll()
+                            "/js/**", "/h2-console/**","/profile").permitAll()
                     .antMatchers("/web/api/**").hasRole(Role.USER.name())///web 주소를 가진 api는 user 권한을 가진 사람만 가능하도록 설정
                     .anyRequest().authenticated() // 설정된 값들 이외 나머지 URL들을 나타낸다, authenticated - 나머지 URL들은 모두 인증된 사용자에게만 허용(= 로그인한 사용자)
                 .and()
