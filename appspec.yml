@@ -3,7 +3,8 @@ version: 0.0 #codedeploy 버전 - 프로젝트 버전이 아니므로 0.0 이외
 os: linux
 files:
   - source: /   #CodeDeploy에서 전달해 준 파일 중 destination으로 이동시킬 대상을 지정 - 루트 경로(/)를 지정하면 전체 파일을 말한다
-    destination: /home/ec2-user/app/step2/zip/ # source에서 지정된 파일을 받을 위치 - 이후 jar를 실행하는 등은 destination에서 옮긴 파일들로 진행
+    destination: /home/ec2-user/app/step3/zip/ # source에서 지정된 파일을 받을 위치 - 이후 jar를 실행하는 등은 destination에서 옮긴 파일들로 진행
+#    destination: /home/ec2-user/app/step2/zip/ # source에서 지정된 파일을 받을 위치 - 이후 jar를 실행하는 등은 destination에서 옮긴 파일들로 진행
     overwrite: yes # 기존파일 있으면 덮어쓸지 결정
 
 #Codedeploy에서 ec2 서버로 넘겨준 파일들 모두 ec2-user 권한을 갖도록 한다
@@ -13,11 +14,32 @@ permissions:
     owner: ec2-user
     group: ec2-user
 
+#step2
 #CodeDeploy 배포 단계에서 실행할 명령어 지정
 #ApplicationStart 단계에서 deploy.sh를 ec2-user 권한으로 실행
 #timeout: 60으로 스크립트 실행 60초 이상 수행되면 실패
+#hooks:
+#  ApplicationStart:
+#    - location: deploy.sh
+#      timeout: 60
+#      runas: ec2-user
+
+#step3
+# stop.sh : 기존 엔진엑스에 연결되어 있진 않지만, 실행중이던 프르이 부트 종료
+# start.sh : 배포할 신규 버전 스프링 부트 프로젝트를 stop.sh를 통해 종료한 'profile'로 실행
+# health.sh : 'start.sh'로 실행시킨 프로젝트가 정상적으로 실행됐는지 체크
+# switch.sh : 엔진엑스가 바라보는 스프링 부트를 최신 버전으로 변경
+# profile.sh : 앞선 4개 스크립트 파일에서 공용으로 사용할 'profile'과 포트 체크 로직
 hooks:
+  AfterInstall:
+    - location: stop.sh # 엔진엑스와 연결되어 있지 않은 스프링부트를 종료
+      timeout: 60
+      runas: ec2-user
   ApplicationStart:
-    - location: deploy.sh
+    - location: start.sh # 엔진엑스와 연결되어 있지 않은 Port로 새버전의 스프링 부트 실행
+      timeout: 60
+      runas: ec2-user
+  ValidateService:
+    - location: health.sh # 새 스프링 부트가 정상적으로 실행됐는지 확인
       timeout: 60
       runas: ec2-user
