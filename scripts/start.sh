@@ -47,5 +47,5 @@ echo "> $JAR_NAME 를 profile=$IDLE_PROFILE 로 실행"
 #    -Dspring.config.additional-location=classpath:/application-deploy-$IDLE_PROFILE.yml,/home/ec2-user/app/application-real-db.yml,/home/ec2-user/app/application-real-oauth.yml \
 nohup java -jar \
     -Dspring.config.additional-location=classpath:/application.yml,classpath:/application-deploy-$IDLE_PROFILE.yml,/home/ec2-user/app/application-real-db.yml,/home/ec2-user/app/application-real-oauth.yml \
-    -Dspring.profiles.active=deploy-$IDLE_PROFILE \
+    -Dspring.profiles.active=$IDLE_PROFILE \
 $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
