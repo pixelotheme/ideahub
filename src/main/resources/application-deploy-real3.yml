@@ -1,9 +1,13 @@
 server:
   port: 8003
 spring:
-#  profiles:
-#    group:
-#      active: real3
-#      "real3": "real-db,real-oauth"
+  profiles:
+    group:
+      active: real3
+      "real3": "real-db,real-oauth"
   session:
     store-type: jdbc
+
+logging:
+  level:
+    org.hibernate.SQL: debug
