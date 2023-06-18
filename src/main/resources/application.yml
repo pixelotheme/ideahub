@@ -1,5 +1,4 @@
-server:
-  port: 8001
+
 
 spring:
   profiles:
@@ -7,6 +6,8 @@ spring:
     group:
      "real1": "real-db,real-oauth"
      "local": "local,local-oauth"
+     "real2": "deploy-real2,real-db,real-oauth"
+     "real3": "deploy-real3,real-db,real-oauth"
   session: #세션 저장소 db로 활용하기 위한 설정ㅓ
     store-type: jdbc
 
