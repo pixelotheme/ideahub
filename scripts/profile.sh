@@ -19,7 +19,7 @@ function find_idle_profile(){
   if [ ${RESPONSE_CODE} -ge 400 ]
 
   then
-    CURRENT_PROFILE=deploy-real3
+    CURRENT_PROFILE=real3
   else
     CURRENT_PROFILE=$(curl -s http://localhost/profile)
   fi
@@ -27,11 +27,11 @@ function find_idle_profile(){
   # IDLE_PROFILE
   # 엔진엑스와 연결되지 않은 profile
   # 스프링 부트 프로젝트를 이 profile로 연결하기 위해 반환
-  if [ ${CURRENT_PROFILE} == deploy-real2 ]
+  if [ ${CURRENT_PROFILE} == real2 ]
   then
-    IDLE_PROFILE=deploy-real3
+    IDLE_PROFILE=real3
   else
-    IDLE_PROFILE=deploy-real2
+    IDLE_PROFILE=real2
   fi
   # bash라는 스크립트는 값을 반환하는 기능이 없다
   # 그래서 제일 마지막 줄에 echo로 결과를 출력 후, 클라이언트에서 그 값을 잡아서  $(find_idle_profile) 사용
@@ -44,7 +44,7 @@ function find_idle_profile(){
 function find_idle_port(){
   IDLE_PROFILE=$(find_idle_profile)
 
-  if [ ${IDLE_PROFILE} == deploy-real2 ]
+  if [ ${IDLE_PROFILE} == real2 ]
    then
      echo "8002"
    else

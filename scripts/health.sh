@@ -31,7 +31,7 @@ for RETRY_COUNT in {1..10}
 do
   # 엔진엑스와 연결되지 않은 포트로 스프링부트가 잘 수행 되었는지 학인, 응답값을 HttpSatus로 받는다
   RESPONSE=$(curl -s http://localhost:${IDLE_PORT}/profile)
-  UP_COUNT=$(echo ${RESPONSE} | grep 'deploy-real' | wc -1) # real 문자열 가져오기
+  UP_COUNT=$(echo ${RESPONSE} | grep 'real' | wc -1) # real 문자열 가져오기
 
   # $UP_COUNT >= 1, REAL 문자열 있는지 검증
   if [ ${UP_COUNT} -ge 1 ]
