@@ -4,7 +4,7 @@ spring:
   profiles:
     group:
       active: real3
-      "real3": "deploy-real3,real-db,real-oauth"
+      "real3": "real-db,real-oauth"
   session:
     store-type: jdbc
 
