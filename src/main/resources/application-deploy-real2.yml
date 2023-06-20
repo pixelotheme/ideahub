@@ -4,7 +4,7 @@ spring:
   profiles:
     group:
       active: real2
-      "real2": "real-db,real-oauth"
+      "real2": "deploy-real2,real-db,real-oauth"
   session:
     store-type: jdbc
 

@@ -6,6 +6,7 @@
 # profile.sh : 앞선 4개 스크립트 파일에서 공용으로 사용할 'profile'과 포트 체크 로직
 
 # step3 환경에서 실행
+# bash는 return value가 안되니 *제일 마지막줄에 echo로 해서 결과 출력*후, 클라이언트에서 값을 사용한다
 
 #!/usr/bin/env bash
 
@@ -16,7 +17,7 @@ function find_idle_profile(){
 #  정상 : 200, 오류 : 400~503 사이 발생시 오류, 모두 예외로 보고 real3를 현재 profile로 사용
   RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile)
 
-  if [ ${RESPONSE_CODE} -ge 400 ]
+  if [ ${RESPONSE_CODE} -ge 400 ] # 400 보다 크면 (즉, 40x/50x 에러 모두 포함)
 
   then
     CURRENT_PROFILE=real3
