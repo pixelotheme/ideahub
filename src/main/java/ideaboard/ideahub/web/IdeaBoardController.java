@@ -23,10 +23,6 @@ public class IdeaBoardController {
     private final IdeaBoardService ideaBoardService;
 
 
-//    @GetMapping("/")
-//    public String home(){
-//        return "index";
-//    }
 
     @GetMapping("/web/ideaboard/list")
     public String list(Model model)

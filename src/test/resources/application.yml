@@ -22,3 +22,5 @@ spring:
             client-secret: "test"
             scope: "profile,email"
 
+logging.level:
+  org.hibernate.SQL: debug
