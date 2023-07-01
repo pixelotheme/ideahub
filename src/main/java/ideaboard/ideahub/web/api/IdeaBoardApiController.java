@@ -33,7 +33,7 @@ public class IdeaBoardApiController {
         IdeaBoardDto dto = IdeaBoardDto.builder()
                 .title(ideaBoardDto.getTitle())
                 .content(ideaBoardDto.getContent())
-                .user(user)
+//                .user(user)
                 .writeDate(LocalDateTime.now())
                 .updateDate(LocalDateTime.now())
                 .build();

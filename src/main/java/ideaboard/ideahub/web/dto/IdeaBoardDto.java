@@ -19,13 +19,13 @@ public class IdeaBoardDto {
     private User user;
 
     @Builder
-    public IdeaBoardDto(Long id,String title, String content, LocalDateTime writeDate, LocalDateTime updateDate, User user) {
+    public IdeaBoardDto(Long id,String title, String content, LocalDateTime writeDate, LocalDateTime updateDate) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.writeDate = writeDate;
         this.updateDate = updateDate;
-        this.user = user;
+//        this.user = user;
     }
 
     public IdeaBoard toEntity(){
@@ -34,7 +34,7 @@ public class IdeaBoardDto {
                 .content(content)
                 .writeDate(writeDate)
                 .updateDate(updateDate)
-                .user(user)
+//                .user(user)
                 .build();
     }
 }
