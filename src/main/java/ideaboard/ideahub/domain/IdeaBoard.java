@@ -51,7 +51,7 @@ public class IdeaBoard {
         this.writeDate = writeDate;
         this.updateDate = updateDate;
         this.author = author;
-//        this.user = user;
+//        this.user = user; user 오픈시 배포 ㅇ안됨
     }
     //메소드를 통한 업데이트
     public void update(String title, String content) {

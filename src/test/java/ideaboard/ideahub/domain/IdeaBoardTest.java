@@ -17,50 +17,50 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-//@RunWith(SpringRunner.class) //테스트시 junit에 내장된 실행자 외에 다른 실행자 실행 = SpringRunner -> junit과 springboot 를 연결해주는 어노테이션
-//@SpringBootTest
-//@Transactional
+@RunWith(SpringRunner.class) //테스트시 junit에 내장된 실행자 외에 다른 실행자 실행 = SpringRunner -> junit과 springboot 를 연결해주는 어노테이션
+@SpringBootTest
+@Transactional
 class IdeaBoardTest {
 
-//
-//    @PersistenceContext
-//    private EntityManager em;
-//
-//    @BeforeEach
-//    public void test() {
-//        User user1 = User.builder()
-//                .name("이름1")
-//                .email("test1@gamil")
-//                .role(Role.USER)
-//                .build();
-//        User user2 = User.builder()
-//                .name("이름2")
-//                .email("test2@gamil")
-//                .role(Role.USER)
-//                .build();
-//
-//        IdeaBoard board1 = IdeaBoard
-//                .builder()
-//                .title("제목1")
-//                .content("내용1")
-//                .user(user1)
-//                .build();
-//        IdeaBoard board2 = IdeaBoard
-//                .builder()
-//                .title("제목2")
-//                .content("내용2")
-//                .user(user2)
-//                .build();
-//
-//
-//        em.persist(user1);
-//        em.persist(user2);
-//        em.persist(board1);
-//        em.persist(board2);
-//
-//        em.flush();
-//        em.clear();
-//    }
+
+    @PersistenceContext
+    private EntityManager em;
+
+    @BeforeEach
+    public void test() {
+        User user1 = User.builder()
+                .name("이름1")
+                .email("test1@gamil")
+                .role(Role.USER)
+                .build();
+        User user2 = User.builder()
+                .name("이름2")
+                .email("test2@gamil")
+                .role(Role.USER)
+                .build();
+
+        IdeaBoard board1 = IdeaBoard
+                .builder()
+                .title("제목1")
+                .content("내용1")
+                .user(user1)
+                .build();
+        IdeaBoard board2 = IdeaBoard
+                .builder()
+                .title("제목2")
+                .content("내용2")
+                .user(user2)
+                .build();
+
+
+        em.persist(user1);
+        em.persist(user2);
+        em.persist(board1);
+        em.persist(board2);
+
+        em.flush();
+        em.clear();
+    }
 //
 //    @Test
 //    @DisplayName(value = "게시판 user id 등록")
