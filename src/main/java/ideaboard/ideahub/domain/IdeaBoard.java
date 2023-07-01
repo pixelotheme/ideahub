@@ -45,7 +45,7 @@ public class IdeaBoard {
 //    }
 
     @Builder
-    public IdeaBoard(String title, String content, LocalDateTime writeDate, LocalDateTime updateDate, String author, User user) {
+    public IdeaBoard(String title, String content, LocalDateTime writeDate, LocalDateTime updateDate, String author) {
         this.title = title;
         this.content = content;
         this.writeDate = writeDate;

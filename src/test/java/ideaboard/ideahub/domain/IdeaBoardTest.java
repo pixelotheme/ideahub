@@ -43,13 +43,13 @@ class IdeaBoardTest {
                 .builder()
                 .title("제목1")
                 .content("내용1")
-                .user(user1)
+//                .user(user1)
                 .build();
         IdeaBoard board2 = IdeaBoard
                 .builder()
                 .title("제목2")
                 .content("내용2")
-                .user(user2)
+//                .user(user2)
                 .build();
 
 
