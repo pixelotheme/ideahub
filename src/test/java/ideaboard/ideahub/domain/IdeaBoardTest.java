@@ -61,22 +61,19 @@ class IdeaBoardTest {
         em.flush();
         em.clear();
     }
-//
-//    @Test
-//    @DisplayName(value = "게시판 user id 등록")
-//    public void saveBoard() throws Exception{
-//        //given
-//        //when
-//
-//        List<IdeaBoard> resultList = em.createQuery("select ib from IdeaBoard ib", IdeaBoard.class)
-//                .getResultList();
-//
-//        //then
-//        resultList.stream().forEach(r -> assertThat(r.getUser().getId())
-//                        .isEqualTo(em.find(User.class, r.getUser().getId()).getId())
-//                                    );
-//
-//    }
+
+    @Test
+    @DisplayName(value = "게시글 All 조회")
+    public void findAllBoard() throws Exception{
+        //given
+        //when
+
+        List<IdeaBoard> findIdeaBoard = em.createQuery("select ib from IdeaBoard ib")
+                .getResultList();
+
+        Assertions.assertThat(findIdeaBoard).extracting("title").containsExactly("제목1","제목2");
+
+    }
 //
 //    @Test
 //    @DisplayName(value = "게시판 삭제")

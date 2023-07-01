@@ -39,10 +39,6 @@ public class IdeaBoard {
     @JoinColumn(name = "user_id")
     private User user;
 
-    //기본 생성자 - NoArgsConstructor로 대신한다
-//    public IdeaBoard(){
-//
-//    }
 
     @Builder
     public IdeaBoard(String title, String content, LocalDateTime writeDate, LocalDateTime updateDate, String author) {

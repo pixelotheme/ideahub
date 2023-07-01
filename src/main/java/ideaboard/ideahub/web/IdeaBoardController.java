@@ -39,10 +39,8 @@ public class IdeaBoardController {
                 .build()
         ).collect(Collectors.toList());
 
-
         model.addAttribute("list", collect);
         return "web/ideaboard/list";
-
 
     }
 
