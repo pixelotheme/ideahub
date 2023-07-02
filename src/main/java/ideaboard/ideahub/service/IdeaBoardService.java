@@ -1,15 +1,12 @@
 package ideaboard.ideahub.service;
 
-import ideaboard.ideahub.domain.IdeaBoard;
-import ideaboard.ideahub.domain.User;
+import ideaboard.ideahub.domain.ideaBoard.IdeaBoard;
 import ideaboard.ideahub.repository.IdeaBoardRepository;
-import ideaboard.ideahub.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 
 /**

@@ -1,5 +1,6 @@
-package ideaboard.ideahub.domain;
+package ideaboard.ideahub.domain.ideaBoard;
 
+import ideaboard.ideahub.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

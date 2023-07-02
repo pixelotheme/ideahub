@@ -2,7 +2,7 @@ package ideaboard.ideahub.config.auth;
 
 import ideaboard.ideahub.config.auth.dto.OAuthAttributes;
 import ideaboard.ideahub.config.auth.dto.SessionUser;
-import ideaboard.ideahub.domain.User;
+import ideaboard.ideahub.domain.user.User;
 import ideaboard.ideahub.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * 구글 로그인 이후 가져온 사용자의 정보 들을 기반으로

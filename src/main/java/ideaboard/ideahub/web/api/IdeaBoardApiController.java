@@ -1,7 +1,7 @@
 package ideaboard.ideahub.web.api;
 
 import ideaboard.ideahub.config.auth.dto.SessionUser;
-import ideaboard.ideahub.domain.User;
+import ideaboard.ideahub.domain.user.User;
 import ideaboard.ideahub.repository.UserRepository;
 import ideaboard.ideahub.service.IdeaBoardService;
 import ideaboard.ideahub.web.dto.IdeaBoardDto;

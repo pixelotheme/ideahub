@@ -1,6 +1,6 @@
 package ideaboard.ideahub.config.auth.dto;
 
-import ideaboard.ideahub.domain.User;
+import ideaboard.ideahub.domain.user.User;
 import lombok.Getter;
 
 import java.io.Serializable;

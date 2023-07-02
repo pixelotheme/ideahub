@@ -1,11 +1,10 @@
 package ideaboard.ideahub.repository;
 
-import ideaboard.ideahub.domain.IdeaBoard;
+import ideaboard.ideahub.domain.ideaBoard.IdeaBoard;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 //순수하게 엔티티를 조회, 저장 하는곳이다

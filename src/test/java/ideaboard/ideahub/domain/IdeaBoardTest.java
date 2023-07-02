@@ -1,5 +1,8 @@
 package ideaboard.ideahub.domain;
 
+import ideaboard.ideahub.domain.ideaBoard.IdeaBoard;
+import ideaboard.ideahub.domain.user.Role;
+import ideaboard.ideahub.domain.user.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,9 +17,8 @@ import javax.persistence.PersistenceContext;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+
 @RunWith(SpringRunner.class) //테스트시 junit에 내장된 실행자 외에 다른 실행자 실행 = SpringRunner -> junit과 springboot 를 연결해주는 어노테이션
 @SpringBootTest
 @Transactional

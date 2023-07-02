@@ -1,4 +1,4 @@
-package ideaboard.ideahub.domain;
+package ideaboard.ideahub.domain.user;
 
 import lombok.Builder;
 import lombok.Getter;

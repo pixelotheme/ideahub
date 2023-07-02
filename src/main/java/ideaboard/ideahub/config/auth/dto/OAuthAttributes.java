@@ -1,7 +1,7 @@
 package ideaboard.ideahub.config.auth.dto;
 
-import ideaboard.ideahub.domain.Role;
-import ideaboard.ideahub.domain.User;
+import ideaboard.ideahub.domain.user.Role;
+import ideaboard.ideahub.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 

@@ -1,6 +1,6 @@
 package ideaboard.ideahub.web.dto;
 
-import ideaboard.ideahub.domain.IdeaBoard;
+import ideaboard.ideahub.domain.ideaBoard.IdeaBoard;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
