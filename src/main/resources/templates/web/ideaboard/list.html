@@ -5,13 +5,12 @@
 <div class="container">
     <div th:replace="fragments/bodyHeader :: bodyHeader"/>
     <div>
-
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>#</th>
                 <th>제목</th>
-                <th>내용</th>
+<!--                <th>내용</th>-->
                 <th>작성일</th>
                 <th>수정일</th>
             </tr>
@@ -22,9 +21,8 @@
 <!--            <tr th:each="var : ${list}" onclick="location='/ideaboard/view'">-->
             <tr th:each="var : ${list}"  th:onclick="|location.href='@{/web/ideaboard/view(id=${var.id})}'|">
                 <td th:text="${var.id}" ></td>
-<!--                <a href="/ideaboard/updateForm/${var.id}">클릭</a>-->
                 <td th:text="${var.title}" ></td>
-                <td th:text="${var.content}" ></td>
+<!--                <td th:text="${var.content}" ></td>-->
                 <td th:text="${var.writeDate}" ></td>
                 <td th:text="${var.updateDate}" ></td>
 

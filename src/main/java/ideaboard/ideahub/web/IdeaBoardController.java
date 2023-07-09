@@ -1,5 +1,7 @@
 package ideaboard.ideahub.web;
 
+import ideaboard.ideahub.config.auth.LoginUser;
+import ideaboard.ideahub.config.auth.dto.SessionUser;
 import ideaboard.ideahub.domain.ideaBoard.IdeaBoard;
 import ideaboard.ideahub.service.IdeaBoardService;
 import ideaboard.ideahub.web.dto.IdeaBoardDto;

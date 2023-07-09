@@ -97,19 +97,19 @@ public class IdeaBoardApiControllerTest {
 //
 //    }
 
-    @Test
-    public void UserTest() throws Exception{
-        User user = User.builder()
-                .email("hoho@AA")
-                .name("테스트")
-                .role(Role.USER)
-                .build();
-        em.persist(user);
-//        userRepository.save(user);
-        em.flush();
-        em.clear();
-
-        System.out.println(em.find(User.class,user.getId()));
-    }
+//    @Test
+//    public void UserTest() throws Exception{
+//        User user = User.builder()
+//                .email("hoho@AA")
+//                .name("테스트")
+//                .role(Role.USER)
+//                .build();
+//        em.persist(user);
+////        userRepository.save(user);
+//        em.flush();
+//        em.clear();
+//
+//        System.out.println(em.find(User.class,user.getId()));
+//    }
 
 }

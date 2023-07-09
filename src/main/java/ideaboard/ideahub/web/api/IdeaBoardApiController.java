@@ -1,5 +1,6 @@
 package ideaboard.ideahub.web.api;
 
+import ideaboard.ideahub.config.auth.LoginUser;
 import ideaboard.ideahub.config.auth.dto.SessionUser;
 import ideaboard.ideahub.domain.user.User;
 import ideaboard.ideahub.repository.UserRepository;
@@ -18,17 +19,17 @@ public class IdeaBoardApiController {
 
     private final IdeaBoardService ideaBoardService;
     private final UserRepository userRepository;
-    private final HttpSession httpSession;
+//    private final HttpSession httpSession;
 
     //글 등록 - TODO - ReponseEntity 리턴타입으로 optional null 처리 해줘야 한다
     @PostMapping("/web/api/ideaboard/post")
-    public Long createBoard(@RequestBody IdeaBoardDto ideaBoardDto){
+    public Long createBoard(
+            @RequestBody IdeaBoardDto ideaBoardDto){
 
-        SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
+//        SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
+//        Optional<User> optionalUser = userRepository.findByEmail(user.getEmail());
 
-        Optional<User> optionalUser = userRepository.findByEmail(sessionUser.getEmail());
 
-        User user = optionalUser.get();
 
         IdeaBoardDto dto = IdeaBoardDto.builder()
                 .title(ideaBoardDto.getTitle())

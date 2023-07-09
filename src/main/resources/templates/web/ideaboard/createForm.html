@@ -41,8 +41,8 @@
             alert("등록성공");
             location='/';
         }).fail(function(error){
-            console.log(JSON.stringify(error));
-            alert(JSON.stringify(error));
+            console.log(error)
+            alert("등록 에러")
         })
     });
 

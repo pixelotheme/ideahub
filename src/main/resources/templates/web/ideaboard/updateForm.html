@@ -60,7 +60,8 @@
             alert("수정성공");
             location='/web/ideaboard/view?id='+success;
         }).fail(function(error){
-            alert(JSON.stringify(error));
+            console.log(error)
+            alert("수정 에러");
         })
     });
 
